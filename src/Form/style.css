@@ -1,0 +1,49 @@
+.form {
+    padding: 20px 20px;
+}
+
+.form__legend {
+    padding: 5px;
+    background-color: rgb(141, 233, 236);
+    border: 2px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.form__fieldset {
+    border: 2px solid rgb(37, 37, 37);
+    border-radius: 20px;
+    background-color: white;
+}
+
+.form__list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.form__listItem {
+    padding: 10px;
+}
+
+.form__button {
+    width: 150px;
+    padding: 5px;
+    background-color: hsl(182, 71%, 74%);
+    border-radius: 20px;
+    box-shadow: 3px 3px 5px 0 #B3DDDB;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+}
+
+.form__button:hover {
+    background-color: hsl(182, 71%, 54%);
+    cursor: pointer;
+}
+
+.form__inputBox {
+    border: 2px solid black;
+    min-width: 190px;
+    padding: 5px;
+    margin-left: 5px;
+}
