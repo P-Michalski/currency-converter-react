@@ -17,7 +17,7 @@ body {
   background-color: #101246;
 }
 
-#root {
+.container {
   max-width: 500px;
   margin: 50px auto;
 }
