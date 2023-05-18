@@ -1,5 +1,5 @@
 # Currency converter
-This is the second project made as a homework during YouCode course, remade in React.js. It consists of handling an input from a form (which is a value in PLN to be converted to a selected currency) and showing expected result, depending on the input values.
+This is the second project made as a homework during YouCode course, remade in React.js. It consists of handling an input from a form (which is a value in PLN to be converted to a selected currency) and showing expected result, depending on the input values. Now also contains a little clock on the top-right corner.
 
 ![Website](/public/images/screenshot.png?)
 
