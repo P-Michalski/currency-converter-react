@@ -1,23 +1,12 @@
 import "./style.css";
 import currencies from "../currencies/currencies";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Result from "../Result";
 import Clock from "../Clock";
 
 const Form = ({ calculateResult, result }) => {
     const [amount, setAmount] = useState(0);
     const [currency, setCurrency] = useState(currencies[0].name);
-    const [time, setTime] = useState(new Date());
-
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            setTime(time => new Date());
-        }, 1000);
-
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, []);
 
     const onFormSubmit = (event) => {
         event.preventDefault();
@@ -29,7 +18,7 @@ const Form = ({ calculateResult, result }) => {
             <form className="form" onSubmit={onFormSubmit}>
                 <fieldset className="form__fieldset">
                     <legend className="form__legend">Kalkulator PLN na inną walutę</legend>
-                    <Clock time={time}/>
+                    <Clock />
                     <ul className="form__list">
                         <li className="form__listItem">
                             <label>Wpisz ilość PLN</label>
