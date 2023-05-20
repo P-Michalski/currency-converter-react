@@ -1,8 +1,8 @@
-import "./style.css";
 import currencies from "../currencies/currencies";
 import { useState } from "react";
-import Result from "../Result";
+import Result from "./Result";
 import Clock from "../Clock";
+import { Button, Container, Fieldset, InputBox, Item, Legend, List, StyledForm } from "./styled";
 
 const Form = ({ calculateResult, result }) => {
     const [amount, setAmount] = useState(0);
@@ -14,29 +14,27 @@ const Form = ({ calculateResult, result }) => {
     };
 
     return (
-        <div className="container">
-            <form className="form" onSubmit={onFormSubmit}>
-                <fieldset className="form__fieldset">
-                    <legend className="form__legend">Kalkulator PLN na inną walutę</legend>
+        <Container>
+            <StyledForm onSubmit={onFormSubmit}>
+                <Fieldset>
+                    <Legend>Kalkulator PLN na inną walutę</Legend>
                     <Clock />
-                    <ul className="form__list">
-                        <li className="form__listItem">
+                    <List>
+                        <Item>
                             <label>Wpisz ilość PLN</label>
-                            <input
+                            <InputBox
                                 type="number"
                                 required
                                 min="0"
                                 step="0.01"
-                                className="form__inputBox"
                                 value={amount}
                                 onChange={({ target }) => setAmount(target.value)}
                             />
-                        </li>
-                        <li className="form__listItem">
+                        </Item>
+                        <Item>
                             <label>Wybierz walutę</label>
-                            <select
+                            <InputBox as="select"
                                 name="currency"
-                                className="form__inputBox"
                                 value={currency}
                                 onChange={({ target }) => setCurrency(target.value)}
                             >
@@ -48,16 +46,16 @@ const Form = ({ calculateResult, result }) => {
                                         {currency.fullName}
                                     </option>
                                 ))}
-                            </select>
-                        </li>
-                        <li className="form__listItem">
-                            <button type="submit" className="form__button">Oblicz</button>
-                        </li>
-                    </ul>
+                            </InputBox>
+                        </Item>
+                        <Item>
+                            <Button type="submit">Oblicz</Button>
+                        </Item>
+                    </List>
                     <Result result={result} />
-                </fieldset>
-            </form>
-        </div>
+                </Fieldset>
+            </StyledForm>
+        </Container>
     )
 };
 
