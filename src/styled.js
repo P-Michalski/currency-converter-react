@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import background from "./images/background.png";
+import { theme } from "./theme";
 
 export const GlobalStyles = createGlobalStyle`
     html {
@@ -18,6 +19,6 @@ export const GlobalStyles = createGlobalStyle`
         background-image: url("${background}");
         background-size: cover;
         background-repeat: no-repeat;
-        background-color: #101246;
+        background-color: ${theme.colors.bunting};
     }
 `;
