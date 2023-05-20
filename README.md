@@ -13,6 +13,7 @@ https://p-michalski.github.io/currency-converter-react/
 - CSS
 - JavaScript
 - create-react-app
+- styled components
 
 *Project was made using BEM convention.*
 
