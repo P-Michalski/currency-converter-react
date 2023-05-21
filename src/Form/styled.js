@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { theme } from "../theme";
 
 export const Container = styled.div`
     max-width: 500px;
@@ -18,7 +17,7 @@ export const Fieldset = styled.fieldset`
 
 export const Legend = styled.legend`
     padding: 5px;
-    background-color: ${theme.colors.spray};
+    background-color: ${({ theme }) => theme.colors.spray};
     border: 2px solid black;
     border-radius: 10px;
     font-size: 20px;
@@ -37,14 +36,14 @@ export const Item = styled.li`
 export const Button = styled.button`
     width: 150px;
     padding: 5px;
-    background-color: ${theme.colors.blizzardBlue};
+    background-color: ${({ theme }) => theme.colors.blizzardBlue};
     border-radius: 20px;
     box-shadow: 3px 3px 5px 0 #B3DDDB;
     font-family: 'Lato', sans-serif;
     font-size: 18px;
 
     &:hover {
-        background-color: ${theme.colors.turquoise};
+        background-color: ${({ theme }) => theme.colors.turquoise};
         cursor: pointer;
     }
 `;
