@@ -1,5 +1,5 @@
 # Currency converter
-This is the second project made as a homework during YouCode course, remade in React.js. It consists of handling an input from a form (which is a value in PLN to be converted to a selected currency) and showing expected result, depending on the input values. Now also contains a little clock on the top-right corner.
+This is the second project made as a homework during YouCode course, remade in React.js. It consists of handling an input from a form (which is a value in PLN to be converted to a selected currency) and showing expected result, depending on the input values. Now also contains a little clock on the top-right corner and uses data from [API](http://exchangerate.host/).
 
 ![Website](/src/images/screenshot.png?)
 
@@ -14,6 +14,7 @@ https://p-michalski.github.io/currency-converter-react/
 - JavaScript
 - create-react-app
 - styled components
+- axios
 
 # Getting Started with Create React App
 
