@@ -1,6 +1,6 @@
 import { StyledMessage } from "./styled";
 
-export const PhaseMessage = ({ message }) => (
+export const StatusMessage = ({ message }) => (
     <StyledMessage>
         {message}
     </StyledMessage>

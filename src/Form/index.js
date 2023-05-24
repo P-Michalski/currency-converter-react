@@ -2,7 +2,7 @@ import { useState } from "react";
 import Result from "./Result";
 import Clock from "../Clock";
 import { Button, Container, Fieldset, InputBox, Item, Legend, List, StyledForm } from "./styled";
-import { PhaseMessage } from "./PhaseMessage";
+import { StatusMessage } from "./PhaseMessage";
 import { useCurrenciesData } from "./useCurrenciesData";
 import { Info } from "./Info";
 
@@ -19,13 +19,13 @@ const Form = ({ calculateResult, result }) => {
     return (
         <Container>
             <StyledForm onSubmit={onFormSubmit}>
-                {currenciesData.phase === "loading" ? (
-                <PhaseMessage
+                {currenciesData.status === "loading" ? (
+                <StatusMessage
                 loading
                 message={`Zaczekaj, strona ładuje dane odnośnie walut...`}
                 />
-                ) : (currenciesData.phase === "error" ? (
-                <PhaseMessage
+                ) : (currenciesData.status === "error" ? (
+                <StatusMessage
                 error
                 message={
                     `Coś poszło nie tak, spróbuj odświeżyć stronę, a jeśli 
