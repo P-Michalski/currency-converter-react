@@ -6,4 +6,4 @@ export const Info = ({ date }) => (
         Kursy walut są pobierane z Europejskiego Banku Centralnego.<br/>
         Dane z dnia {date}.
     </StyledInfo>
-)
+);
