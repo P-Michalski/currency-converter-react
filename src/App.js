@@ -1,12 +1,13 @@
 import { useState } from "react";
 import Form from "./Form";
-import currencies from "./currencies/currencies";
+import { useCurrenciesData } from "./Form/useCurrenciesData";
 
 function App() {
   const [result, setResult] = useState();
+  const currenciesData = useCurrenciesData();
 
   const calculateResult = (amount, currency) => {
-    const rate = currencies.find(({ name }) => name === currency).rate;
+    const rate = currenciesData.rates[currency];
 
     setResult({
       inputValue: amount,
