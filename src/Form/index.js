@@ -2,9 +2,10 @@ import { useState } from "react";
 import Result from "./Result";
 import Clock from "../Clock";
 import { Button, Container, Fieldset, InputBox, Item, Legend, List, StyledForm } from "./styled";
-import { StatusMessage } from "./PhaseMessage";
 import { useCurrenciesData } from "./useCurrenciesData";
 import { Info } from "./Info";
+import { LoadingMessage } from "./StatusMessage/LoadingMessage";
+import { ErrorMessage } from "./StatusMessage/ErrorMessage";
 
 const Form = ({ calculateResult, result }) => {
     const [amount, setAmount] = useState(0);
@@ -20,60 +21,51 @@ const Form = ({ calculateResult, result }) => {
         <Container>
             <StyledForm onSubmit={onFormSubmit}>
                 {currenciesData.status === "loading" ? (
-                <StatusMessage
-                loading
-                message={`Zaczekaj, strona ładuje dane odnośnie walut...`}
-                />
+                    <LoadingMessage />
                 ) : (currenciesData.status === "error" ? (
-                <StatusMessage
-                error
-                message={
-                    `Coś poszło nie tak, spróbuj odświeżyć stronę, a jeśli 
-                    to nie poskutkuje - spróbuj ponownie później.`
-                }
-                />
+                    <ErrorMessage />
                 ) : (
-                <Fieldset>
-                    <Legend>Kalkulator PLN na inną walutę</Legend>
-                    <Clock />
-                    <List>
-                        <Item>
-                            <label>Wpisz ilość PLN</label>
-                            <InputBox
-                                type="number"
-                                required
-                                min="0"
-                                step="0.01"
-                                value={amount}
-                                onChange={({ target }) => setAmount(target.value)}
-                            />
-                        </Item>
-                        <Item>
-                            <label>Wybierz walutę</label>
-                            <InputBox as="select"
-                                name="currency"
-                                value={currency}
-                                onChange={({ target }) => setCurrency(target.value)}
-                            >
-                                {Object.keys(currenciesData.rates).map(currency => (
-                                    <option
-                                        key={currency}
-                                        value={currency}
-                                    >
-                                        {currency}
-                                    </option>
-                                ))}
-                            </InputBox>
-                        </Item>
-                        <Item>
-                            <Button type="submit">Oblicz</Button>
-                        </Item>
-                        <Item>
-                            <Info date={currenciesData.date}/>
-                        </Item>
-                    </List>
-                    <Result result={result} />
-                </Fieldset>
+                    <Fieldset>
+                        <Legend>Kalkulator PLN na inną walutę</Legend>
+                        <Clock />
+                        <List>
+                            <Item>
+                                <label>Wpisz ilość PLN</label>
+                                <InputBox
+                                    type="number"
+                                    required
+                                    min="0"
+                                    step="0.01"
+                                    value={amount}
+                                    onChange={({ target }) => setAmount(target.value)}
+                                />
+                            </Item>
+                            <Item>
+                                <label>Wybierz walutę</label>
+                                <InputBox as="select"
+                                    name="currency"
+                                    value={currency}
+                                    onChange={({ target }) => setCurrency(target.value)}
+                                >
+                                    {Object.keys(currenciesData.rates).map(currency => (
+                                        <option
+                                            key={currency}
+                                            value={currency}
+                                        >
+                                            {currency}
+                                        </option>
+                                    ))}
+                                </InputBox>
+                            </Item>
+                            <Item>
+                                <Button type="submit">Oblicz</Button>
+                            </Item>
+                            <Item>
+                                <Info date={currenciesData.date} />
+                            </Item>
+                        </List>
+                        <Result result={result} />
+                    </Fieldset>
                 ))}
             </StyledForm>
         </Container>
